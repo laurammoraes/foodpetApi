@@ -10,24 +10,49 @@ const docClient = new AWS.DynamoDB.DocumentClient({region: "us-east-2"});
 exports.handler = async function(event: APIGatewayProxyEvent) {
    console.log(event);
 
-   const body = JSON.parse(event.body);
-   console.log(body);
-   const number = body.number;
-   const token = body.token;
-   console.log(number);
+   const email = event.request.userAttributes.email;
+   const email_verified = event.request.userAttributes.email_verified;
+   console.log(email);
+   console.log(email_verified);
+   console.log(event)
+   
   
+   
+    var params = {
+        TableName: 'PetshopTable', 
+        Item:{
+            id: email,
+            verify: email_verified,
+            createdDate: Date.now(),
+            telphone: null,
+            end:null,
+            instagram:null,
+            site:null,
+            veterinario:null,
+            servico:null,
+           
+        }
+    }
+    try{ 
+        const create = await docClient.put(params).promise();
+        const data = {
+           response: "PetShop criado com sucesso!"
+           }
+        
+        return ok(data)
+    }catch(error){
+        console.error(error)
+        return serverError(error)
+    }
+
 
 
    
-    try{
-        const data = {
-            response: "Mensagem enviada com sucesso"
-            }
-        return ok(data)
-    }catch(error){
-        return serverError(error)
-    }
+    
    
     
 
   } 
+
+
+  
