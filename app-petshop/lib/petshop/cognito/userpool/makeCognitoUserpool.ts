@@ -67,7 +67,7 @@ export function makeCognitoUserPool(stack: Stack) {
 
     userPool.addDomain('Domain', {
         cognitoDomain: {
-            domainPrefix: 'userfincare',
+            domainPrefix: 'petshopapp',
         },
     });
 
