@@ -5,9 +5,9 @@ const docClient = new AWS.DynamoDB.DocumentClient({region: "us-east-2"});
 
 
 
-//   export const handler = async() => {
+  export const handler = async(event: APIGatewayProxyEvent) => {
 // export const handler = async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {
-exports.handler = async function(event: APIGatewayProxyEvent) {
+// exports.handler = async function(event: APIGatewayProxyEvent) {
    console.log(event);
 
    const email = event.request.userAttributes.email;
