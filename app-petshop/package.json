@@ -24,6 +24,7 @@
     "@aws-cdk/aws-apigateway": "^1.181.0",
     "@aws-cdk/aws-cognito": "^1.181.0",
     "@aws-cdk/core": "^1.181.0",
+    "@types/aws-lambda": "^8.10.108",
     "aws-cdk-lib": "2.51.1",
     "aws-lambda": "^1.0.7",
     "cdk-typescript-tooling": "^3.0.3",

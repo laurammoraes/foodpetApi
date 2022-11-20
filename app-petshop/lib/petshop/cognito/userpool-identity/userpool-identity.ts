@@ -6,15 +6,13 @@ import { makecreatePetshopLambda } from '../../lambdas/create'
 
 export const makeCognitoUserPoolClient = (stack: Stack) => {
     const provider = new UserPoolIdentityProviderFacebook(stack, 'Facebook', {
-        clientId: '980953762652307',
-        clientSecret: '9d1dfc27408d22aff70ff750d0958400',
+        clientId: '512085850838763',
+        clientSecret: '65d06a91827c4c82419fab67df097e17',
         userPool: makeCognitoUserPool,
         attributeMapping: {
           id: ProviderAttribute.FACEBOOK_USERNAME,
           email: ProviderAttribute.FACEBOOK_EMAIL,
-          fullname: ProviderAttribute.FACEBOOK_EMAIL,
-          locale: ProviderAttribute.FACEBOOK_LOCALE,
-          
+       
           
         }
       });
